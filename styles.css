@@ -5,6 +5,7 @@
 }
 
 :root {
+    /* Colors */
     --white: #ffffff;
     --black: hsl(0,0%,20%);
     --black-glass: hsla(0,0%,20%, 0.4);
@@ -12,6 +13,10 @@
     --grey: hsl(0,0%,50%);
     --grey-light: hsl(0,0%,70%);
     --blue: rgb(8 145 178);
+    --red: rgb(158 28 28);
+
+    /* Sizes */
+    --width-border: 960px;
 }
 
 body {
@@ -25,7 +30,7 @@ body {
     z-index: -1;
     
     width: 100%;
-    height: 50vh;
+    height: 70vh;
 
     background-color: var(--blue);
     clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);
@@ -35,14 +40,17 @@ p {
     color: var(--grey-dark);
 }
 
+.shadow {
+    box-shadow: 0 2px 8px var(--black-glass);
+}
+
 header {
     display: flex;
     flex-direction: row;
     background-color: var(--white);
 
-    max-width: 960px;
+    max-width: var(--width-border);
     margin: 64px;
-    box-shadow: 0 2px 8px var(--black-glass);
 }
 
 .header__title {
@@ -108,9 +116,108 @@ header {
 }
 
 main {
-    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    max-width: var(--width-border);
+    width: 100%;
+    margin: 64px 0 128px 0;
+}
+
+.projects-container {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+
+    height: 320px;
+}
+
+.project__img-container {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    background-color: var(--red);
+}
+
+.project__info-container {
+    flex: 1;
+
+    padding: 8px 16px;
+}
+
+.project__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project__links .icon-button {
+    width: 24px;
+    height: 24px;
 }
 
 footer {
-    background-color: purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    background-color: var(--blue);
+}
+
+.footer__container {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+
+    padding: 32px 0px;
+    max-width: var(--width-border);
+}
+
+.footer__contacts-container {
+    flex: 6;
+    display: flex;
+    flex-direction: column;
+
+    gap: 24px;
+}
+
+.footer__title {
+    color: var(--white);
+}
+
+.footer__text {
+    color: var(--white);
+}
+
+.footer__links {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.footer__links .icon-button {
+    width: 48px;
+    height: 48px;
+}
+
+.footer__img-container {
+    flex: 8;
+}
+
+.footer__img {
+    object-position: 90% 50%;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
